@@ -6,17 +6,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name="employees")
-public class Employees {
+@Table(name="customers",uniqueConstraints = {@UniqueConstraint(name="name_unique",columnNames = "email_address")})
+public class Customer {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -68,11 +63,24 @@ public class Employees {
 	
 	@Column(name="notes")
 	private String notes;
+	
+	private String name;
 
 	public Long getId() {
 		return id;
 	}
-
+	
+	public String getName() {
+		if(name==null) {
+			setName(this.first_name, this.last_name);
+		}
+		return name;
+	}
+	
+	public void setName(String fname, String lname) {
+		this.name = fname+" "+lname;
+	}
+	
 	public void setId(Long id) {
 		this.id = id;
 	}
@@ -204,5 +212,41 @@ public class Employees {
 	public void setNotes(String notes) {
 		this.notes = notes;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Customer [id=" + id + ", company=" + company + ", last_name=" + last_name + ", first_name=" + first_name
+				+ ", email_address=" + email_address + ", job_title=" + job_title + ", business_phone=" + business_phone
+				+ ", home_phone=" + home_phone + ", mobile_phone=" + mobile_phone + ", fax_number=" + fax_number
+				+ ", address=" + address + ", city=" + city + ", state_province=" + state_province
+				+ ", zip_postal_code=" + zip_postal_code + ", country_region=" + country_region + ", web_page="
+				+ web_page + ", notes=" + notes + "]";
+	}
+
+	public Customer(Long id, String company, String last_name, String first_name, String email_address, String job_title,
+			String business_phone, String home_phone, String mobile_phone, String fax_number, String address,
+			String city, String state_province, String zip_postal_code, String country_region, String web_page,
+			String notes) {
+		super();
+		this.id = id;
+		this.company = company;
+		this.last_name = last_name;
+		this.first_name = first_name;
+		this.email_address = email_address;
+		this.job_title = job_title;
+		this.business_phone = business_phone;
+		this.home_phone = home_phone;
+		this.mobile_phone = mobile_phone;
+		this.fax_number = fax_number;
+		this.address = address;
+		this.city = city;
+		this.state_province = state_province;
+		this.zip_postal_code = zip_postal_code;
+		this.country_region = country_region;
+		this.web_page = web_page;
+		this.notes = notes;
+	}
+
+	public Customer() {
+	}
 }
