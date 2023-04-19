@@ -8,6 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Table(name="invoices")
 public class Invoices implements Serializable{
@@ -19,7 +22,7 @@ public class Invoices implements Serializable{
 	@Column(name="order_id")
 	private int order_id;
 	
-	@Column(name="invoice_date")
+	@CreationTimestamp
 	private LocalDateTime invoice_date;
 
 	@Column(name="due_date")

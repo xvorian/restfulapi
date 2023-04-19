@@ -19,7 +19,7 @@ import com.example.models.Customer;
 import com.example.services.CustomerServices;
 
 @RestController
-@RequestMapping("/customer")
+@RequestMapping("/customer/")
 public class CustomersController {
 	
 	@Autowired
@@ -30,9 +30,14 @@ public class CustomersController {
 		return services.findAll();
 	}
 	
-	@GetMapping("{customerId}")
+	@GetMapping("/id/{customerId}")
 	public Customer getCustomerById(@PathVariable Long customerId) {
 		return services.findById(customerId);
+	}
+	
+	@GetMapping("?firstName={fName}&lastName={lName}")
+	public Customer getCustomerByName(@PathVariable String fName, @PathVariable String lName) {
+		return services.findByName(fName, lName);
 	}
 	
 	@PostMapping
