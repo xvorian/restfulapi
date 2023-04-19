@@ -66,22 +66,9 @@ public class Customer {
 	
 	@Column(name="notes")
 	private String notes;
-	
-	private String name;
 
 	public Integer getId() {
 		return id;
-	}
-	
-	public String getName() {
-		if(name==null) {
-			setName(this.first_name, this.last_name);
-		}
-		return name;
-	}
-	
-	public void setName(String fname, String lname) {
-		this.name = fname+" "+lname;
 	}
 	
 	public void setId(Integer id) {

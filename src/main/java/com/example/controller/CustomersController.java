@@ -13,13 +13,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.models.Customer;
 import com.example.services.CustomerServices;
 
 @RestController
-@RequestMapping("/customer/")
+@RequestMapping("/customer")
 public class CustomersController {
 	
 	@Autowired
@@ -31,11 +32,11 @@ public class CustomersController {
 	}
 	
 	@GetMapping("/id/{customerId}")
-	public Customer getCustomerById(@PathVariable Long customerId) {
+	public Customer getCustomerById(@PathVariable Integer customerId) {
 		return services.findById(customerId);
 	}
 	
-	@GetMapping("?firstName={fName}&lastName={lName}")
+	@GetMapping("/name/firstName={fName}&lastName={lName}")
 	public Customer getCustomerByName(@PathVariable String fName, @PathVariable String lName) {
 		return services.findByName(fName, lName);
 	}
@@ -51,7 +52,7 @@ public class CustomersController {
 	}
 	
 	@DeleteMapping("{customerId}")
-	public String deleteCustomer(Long Id) {
+	public String deleteCustomer(Integer Id) {
 		services.deleteCustomeById(Id);
 		return "deleted";
 	}

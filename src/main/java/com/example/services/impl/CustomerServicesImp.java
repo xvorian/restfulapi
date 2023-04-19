@@ -1,5 +1,6 @@
 package com.example.services.impl;
 
+import java.io.Console;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,7 @@ public class CustomerServicesImp implements CustomerServices {
 	}
 
 	@Override
-	public Customer findById(Long Id) {
+	public Customer findById(Integer Id) {
 		return repository.findById(Id).orElse(null);
 	}
 
@@ -63,7 +64,7 @@ public class CustomerServicesImp implements CustomerServices {
 	}
 
 	@Override
-	public String deleteCustomeById(Long id) {
+	public String deleteCustomeById(Integer id) {
 		repository.deleteById(id);
 		return "Delete By Id Successful";
 	}
