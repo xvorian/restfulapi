@@ -16,7 +16,7 @@ public class InventoryTransactionTypes implements Serializable{
 	private Long id;
 	
 	@Column(name="type_name")
-	private Long type_name;
+	private String type_name;
 
 	public Long getId() {
 		return id;
@@ -26,11 +26,11 @@ public class InventoryTransactionTypes implements Serializable{
 		this.id = id;
 	}
 
-	public Long getType_name() {
+	public String getType_name() {
 		return type_name;
 	}
 
-	public void setType_name(Long type_name) {
+	public void setType_name(String type_name) {
 		this.type_name = type_name;
 	}
 }

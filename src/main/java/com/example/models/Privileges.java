@@ -8,15 +8,15 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="privileges")
-public class Privileges implements Serializable{
-	
+@Table(name = "privileges")
+public class Privileges implements Serializable {
+
 	@Id
-	@Column(name="id")
+	@Column(name = "id")
 	private Long id;
-	
-	@Column(name="privilege_name")
-	private Long privilege_name;
+
+	@Column(name = "privilege_name")
+	private String privilege_name;
 
 	public Long getId() {
 		return id;
@@ -26,11 +26,12 @@ public class Privileges implements Serializable{
 		this.id = id;
 	}
 
-	public Long getPrivilege_name() {
+	public String getPrivilege_name() {
 		return privilege_name;
 	}
 
-	public void setPrivilege_name(Long privilege_name) {
+	public void setPrivilege_name(String privilege_name) {
 		this.privilege_name = privilege_name;
 	}
+
 }
