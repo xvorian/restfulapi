@@ -1,11 +1,15 @@
 package com.example.models;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -17,8 +21,9 @@ import org.springframework.data.annotation.CreatedDate;
 public class Orders implements Serializable{
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="id")
-	private Long id;
+	private Integer id;
 	
 	@Column(name="employee_id")
 	private int employee_id;
@@ -38,6 +43,7 @@ public class Orders implements Serializable{
 	@Column(name="ship_name")
 	private String ship_name;
 
+	@Lob
 	@Column(name="ship_address")
 	private String ship_address;
 
@@ -54,17 +60,18 @@ public class Orders implements Serializable{
 	private String ship_country_region;
 	
 	@Column(name="shipping_fee")
-	private float shipping_fee;
+	private BigDecimal shipping_fee;
 	
 	@Column(name="taxes")
-	private float taxes;
+	private BigDecimal taxes;
 	
 	@Column(name="payment_type")
 	private String payment_type;
 	
-	@UpdateTimestamp
+	@CreationTimestamp
 	private LocalDateTime paid_date;
 	
+	@Lob
 	@Column(name="notes")
 	private String notes;
 	
@@ -72,16 +79,16 @@ public class Orders implements Serializable{
 	private double tax_rate;
 	
 	@Column(name="tax_status_id")
-	private int tax_status_id;
+	private Byte tax_status_id;
 	
 	@Column(name="status_id")
-	private int status_id;
+	private Byte status_id;
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -173,19 +180,19 @@ public class Orders implements Serializable{
 		this.ship_country_region = ship_country_region;
 	}
 
-	public float getShipping_fee() {
+	public BigDecimal getShipping_fee() {
 		return shipping_fee;
 	}
 
-	public void setShipping_fee(float shipping_fee) {
+	public void setShipping_fee(BigDecimal shipping_fee) {
 		this.shipping_fee = shipping_fee;
 	}
 
-	public float getTaxes() {
+	public BigDecimal getTaxes() {
 		return taxes;
 	}
 
-	public void setTaxes(float taxes) {
+	public void setTaxes(BigDecimal taxes) {
 		this.taxes = taxes;
 	}
 
@@ -221,19 +228,19 @@ public class Orders implements Serializable{
 		this.tax_rate = tax_rate;
 	}
 
-	public int getTax_status_id() {
+	public Byte getTax_status_id() {
 		return tax_status_id;
 	}
 
-	public void setTax_status_id(int tax_status_id) {
+	public void setTax_status_id(Byte tax_status_id) {
 		this.tax_status_id = tax_status_id;
 	}
 
-	public int getStatus_id() {
+	public Byte getStatus_id() {
 		return status_id;
 	}
 
-	public void setStatus_id(int status_id) {
+	public void setStatus_id(Byte status_id) {
 		this.status_id = status_id;
 	}
 	

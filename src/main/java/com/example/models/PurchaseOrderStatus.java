@@ -13,30 +13,31 @@ import javax.persistence.Table;
 import org.springframework.data.annotation.CreatedDate;
 
 @Entity
-@Table(name="orders_status")
-public class OrdersStatus implements Serializable{
+@Table(name="orders_tax_status")
+public class PurchaseOrderStatus implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="id")
-	private Byte id;
+	private Integer id;
 	
-	@Column(name="status_name")
-	private String status_name;
+	@Column(name="status")
+	private String status;
 
-	public Byte getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Byte id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public String getStatus_name() {
-		return status_name;
+	public String getStatus() {
+		return status;
 	}
 
-	public void setStatus_name(String status_name) {
-		this.status_name = status_name;
+	public void setStatus(String status) {
+		this.status = status;
 	}
+
 }

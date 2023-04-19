@@ -1,10 +1,13 @@
 package com.example.models;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -16,8 +19,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Invoices implements Serializable{
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="id")
-	private Long id;
+	private Integer id;
 	
 	@Column(name="order_id")
 	private int order_id;
@@ -29,19 +33,19 @@ public class Invoices implements Serializable{
 	private LocalDateTime due_date;
 
 	@Column(name="tax")
-	private float tax;
+	private BigDecimal tax;
 
 	@Column(name="shipping")
-	private float shipping;
+	private BigDecimal shipping;
 
 	@Column(name="amount_due")
-	private float amount_due;
+	private BigDecimal amount_due;
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -69,27 +73,27 @@ public class Invoices implements Serializable{
 		this.due_date = due_date;
 	}
 
-	public float getTax() {
+	public BigDecimal getTax() {
 		return tax;
 	}
 
-	public void setTax(float tax) {
+	public void setTax(BigDecimal tax) {
 		this.tax = tax;
 	}
 
-	public float getShipping() {
+	public BigDecimal getShipping() {
 		return shipping;
 	}
 
-	public void setShipping(float shipping) {
+	public void setShipping(BigDecimal shipping) {
 		this.shipping = shipping;
 	}
 
-	public float getAmount_due() {
+	public BigDecimal getAmount_due() {
 		return amount_due;
 	}
 
-	public void setAmount_due(float amount_due) {
+	public void setAmount_due(BigDecimal amount_due) {
 		this.amount_due = amount_due;
 	}
 }

@@ -5,6 +5,8 @@ import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -15,17 +17,18 @@ import org.springframework.data.annotation.CreatedDate;
 public class OrdersTaxStatus implements Serializable{
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="id")
-	private Long id;
+	private Byte id;
 	
 	@Column(name="tax_status_name")
 	private String tax_status_name;
 
-	public Long getId() {
+	public Byte getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Byte id) {
 		this.id = id;
 	}
 

@@ -1,10 +1,13 @@
 package com.example.models;
 
+import java.math.BigInteger;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
@@ -13,8 +16,8 @@ import javax.persistence.UniqueConstraint;
 public class Customer {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer id;
 	
 	@Column(name="company")
 	private String company;
@@ -66,7 +69,7 @@ public class Customer {
 	
 	private String name;
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 	
@@ -81,7 +84,7 @@ public class Customer {
 		this.name = fname+" "+lname;
 	}
 	
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -223,7 +226,7 @@ public class Customer {
 				+ web_page + ", notes=" + notes + "]";
 	}
 
-	public Customer(Long id, String company, String last_name, String first_name, String email_address, String job_title,
+	public Customer(Integer id, String company, String last_name, String first_name, String email_address, String job_title,
 			String business_phone, String home_phone, String mobile_phone, String fax_number, String address,
 			String city, String state_province, String zip_postal_code, String country_region, String web_page,
 			String notes) {

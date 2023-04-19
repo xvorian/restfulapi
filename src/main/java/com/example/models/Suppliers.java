@@ -16,8 +16,8 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Table(name="employees")
-public class Employees {
+@Table(name="suppliers")
+public class Suppliers {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="id")

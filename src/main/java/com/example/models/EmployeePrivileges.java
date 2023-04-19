@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -13,25 +15,25 @@ public class EmployeePrivileges implements Serializable{
 	
 	@Id
 	@Column(name="employee_id")
-	private Long employee_id;
+	private Integer employee_id;
 	
 	@Id
 	@Column(name="privilege_id")
-	private Long privilege_id;
+	private Integer privilege_id;
 
-	public Long getEmployee_id() {
+	public Integer getEmployee_id() {
 		return employee_id;
 	}
 
-	public void setEmployee_id(Long employee_id) {
+	public void setEmployee_id(Integer employee_id) {
 		this.employee_id = employee_id;
 	}
 
-	public Long getPrivilege_id() {
+	public Integer getPrivilege_id() {
 		return privilege_id;
 	}
 
-	public void setPrivilege_id(Long privilege_id) {
+	public void setPrivilege_id(Integer privilege_id) {
 		this.privilege_id = privilege_id;
 	}
 	

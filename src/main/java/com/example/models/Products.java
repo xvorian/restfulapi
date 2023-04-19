@@ -1,12 +1,16 @@
 package com.example.models;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.sql.Blob;
 import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 
 import org.springframework.data.annotation.CreatedDate;
@@ -16,9 +20,11 @@ import org.springframework.data.annotation.CreatedDate;
 public class Products implements Serializable{
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="id")
-	private Long id;
+	private Integer id;
 	
+	@Lob
 	@Column(name="supplier_ids")
 	private String supplier_ids;
 
@@ -28,14 +34,15 @@ public class Products implements Serializable{
 	@Column(name="product_name")
 	private String product_name;
 
+	@Lob
 	@Column(name="description")
 	private String description;
 
 	@Column(name="standard_cost")
-	private float standard_cost;
+	private BigDecimal standard_cost;
 
 	@Column(name="list_price")
-	private float list_price;
+	private BigDecimal list_price;
 
 	@Column(name="reorder_level")
 	private int reorder_level;
@@ -47,7 +54,7 @@ public class Products implements Serializable{
 	private String quantity_per_unit;
 
 	@Column(name="discontinued")
-	private int discontinued;
+	private Boolean discontinued;
 
 	@Column(name="minimum_reorder_quantity")
 	private int minimum_reorder_quantity;
@@ -58,11 +65,11 @@ public class Products implements Serializable{
 	@Column(name="attachments")
 	private Blob attachments;
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -98,19 +105,19 @@ public class Products implements Serializable{
 		this.description = description;
 	}
 
-	public float getStandard_cost() {
+	public BigDecimal getStandard_cost() {
 		return standard_cost;
 	}
 
-	public void setStandard_cost(float standard_cost) {
+	public void setStandard_cost(BigDecimal standard_cost) {
 		this.standard_cost = standard_cost;
 	}
 
-	public float getList_price() {
+	public BigDecimal getList_price() {
 		return list_price;
 	}
 
-	public void setList_price(float list_price) {
+	public void setList_price(BigDecimal list_price) {
 		this.list_price = list_price;
 	}
 
@@ -138,11 +145,11 @@ public class Products implements Serializable{
 		this.quantity_per_unit = quantity_per_unit;
 	}
 
-	public int getDiscontinued() {
+	public Boolean getDiscontinued() {
 		return discontinued;
 	}
 
-	public void setDiscontinued(int discontinued) {
+	public void setDiscontinued(Boolean discontinued) {
 		this.discontinued = discontinued;
 	}
 
