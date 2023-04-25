@@ -31,13 +31,18 @@ public class FilmController {
 	
 //	@GetMapping("/{id}")
 //	public Film getById(@PathVariable(value="id") Integer Id) {
-//		return Optional.ofNullable(services.findById(Id).map(mapper -> mapper.get));
+//		return services.findById(Id);
 //	}
 	
 	@GetMapping("/title")
 	public Film getByTitle(@RequestParam(value="title") String title) {
 		services.findByTitle(title);
 		return new Film();
+	}
+	
+	@GetMapping("/rating/{r}")
+	public List<Film> findByReleaseYear(@PathVariable(value="r") String r){
+		return services.findByRating(r);
 	}
 	
 	@PostMapping

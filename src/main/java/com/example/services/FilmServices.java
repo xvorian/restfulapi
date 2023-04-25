@@ -10,6 +10,7 @@ public interface FilmServices {
 	public Optional<Film> findById(Integer Id);
 	public Film findByTitle(String title);
 	public List<Film> findByReleaseYear(Integer year);
+	public List<Film> findByRating(String r);
 	public String createFilm(Film Film);
 	public String updateFilm(Film Film);
 	public String deleteFilm(Integer id);

@@ -2,6 +2,8 @@ package com.example.services.impl;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,6 +27,7 @@ public class FilmServicesImpl implements FilmServices {
 	public Optional<Film> findById(Integer Id) {
 		return repository.findById(Id);
 	}
+	
 
 	@Override
 	public String createFilm(Film Film) {
@@ -46,6 +49,7 @@ public class FilmServicesImpl implements FilmServices {
 
 	@Override
 	public Film findByTitle(String title) {
+//		return repository.findAll().stream().filter(f -> f.getTitle().equalsIgnoreCase(title)).map(f ->)
 		for(Film film : repository.findAll()) {
 			if(film.getTitle().equalsIgnoreCase(title)) {
 				return film;
@@ -56,8 +60,12 @@ public class FilmServicesImpl implements FilmServices {
 
 	@Override
 	public List<Film> findByReleaseYear(Integer year) {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.findAll().stream().filter(f -> year == f.getRelease_year()).collect(Collectors.toList());
+	}
+	
+	@Override
+	public List<Film> findByRating(String r){
+		return repository.findAll().stream().filter(f -> r.equals(f.getRating())).collect(Collectors.toList());
 	}
 
 }
