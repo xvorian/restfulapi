@@ -1,18 +1,19 @@
 package lambda;
 
 import java.util.ArrayList;
+import static lambda.Person.Gender.FEMALE;
+import static lambda.Person.Gender.MALE;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Imprative {
 
 	public static void main(String[] args) {
 		List<Person> people = new ArrayList<>();
-		people.add(new Person("Amjad", Gender.MALE));
-		people.add(new Person("Ayan", Gender.MALE));
-		people.add(new Person("Ather", Gender.MALE));
-		people.add(new Person("Shumaila", Gender.FEMALE));
-		people.add(new Person("Alishbah", Gender.FEMALE));
+		people.add(new Person("Amjad", MALE));
+		people.add(new Person("Ayan", MALE));
+		people.add(new Person("Ather", MALE));
+		people.add(new Person("Shumaila", FEMALE));
+		people.add(new Person("Alishbah", FEMALE));
 		
 		// Imperative Approach
 		System.out.println("Imperative Approach");

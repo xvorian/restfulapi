@@ -25,4 +25,8 @@ public class Person {
 		return "Person [name=" + name + ", gender=" + gender + "]";
 	}
 	
+	enum Gender {
+		MALE,FEMALE
+	}
+	
 }
