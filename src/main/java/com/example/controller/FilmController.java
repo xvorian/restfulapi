@@ -2,6 +2,7 @@ package com.example.controller;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -44,6 +45,17 @@ public class FilmController {
 	public List<Film> findByReleaseYear(@PathVariable(value="r") String r){
 		return services.findByRating(r);
 	}
+	
+	@GetMapping("/rating")
+	public Set<String> getUniqueRating(){
+		return services.findUniqueRating();
+	}
+	
+	@GetMapping("rating/excluded/{r}")
+	public List<Film> excludeRating(@PathVariable(value="r") String rating){
+		return services.excludeRating(rating);
+	}
+	
 	
 	@PostMapping
 	public String createFilm(@RequestBody Film film) {

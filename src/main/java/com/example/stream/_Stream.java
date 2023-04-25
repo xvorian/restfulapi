@@ -2,6 +2,7 @@ package com.example.stream;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.example.stream._Stream.Person.Gender;
 
@@ -14,6 +15,8 @@ public class _Stream {
 		people.add(new Person("Ather", Gender.MALE));
 		people.add(new Person("Shumaila", Gender.FEMALE));
 		people.add(new Person("Alishbah", Gender.FEMALE));
+		
+		people.stream().map(person -> person.gender).collect(Collectors.toSet()).forEach(System.out::print);
 
 	}
 

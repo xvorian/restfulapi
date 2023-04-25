@@ -1,7 +1,12 @@
 package lambda;
 
 import java.util.function.Predicate;
-
+/**
+ * Turns based on the boolean condition.
+ * Filter in the Stream uses Predicate
+ * @author amjad
+ *
+ */
 public class _Predicate {
 
 	static Predicate<String> isPhoneNumberValid = phoneNumber -> phoneNumber.length() == 11;

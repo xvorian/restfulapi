@@ -2,6 +2,7 @@ package com.example.services;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import com.example.models.Film;
 
@@ -14,4 +15,6 @@ public interface FilmServices {
 	public String createFilm(Film Film);
 	public String updateFilm(Film Film);
 	public String deleteFilm(Integer id);
+	public Set<String> findUniqueRating();
+	public List<Film> excludeRating(String rating);
 }
