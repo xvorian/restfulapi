@@ -1,6 +1,8 @@
 package com.example.services.impl;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,5 +45,12 @@ public class CountryServicesImpl implements CountryServices {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+//	@Override
+//	public List<Country> countriesNamesInContinent(String continent) {
+//		List<String> result = new ArrayList<String>();
+//		return repository.findAll().stream().filter(m -> m.getContinent().equalsIgnoreCase(continent)).map(Country::new)
+//				.collect(Collectors.toList());
+//	}
 
 }

@@ -1,6 +1,8 @@
 package com.example.services.impl;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,15 +15,36 @@ import com.example.services.CityServices;
 public class CityServicesImpl implements CityServices {
 
 	@Autowired
-	CityRepository repository;
-	
+	CityRepository repo;
+
 	@Override
 	public List<City> findAll() {
-		return repository.findAll();
+		return repo.findAll();
 	}
 
 	@Override
-	public City findById(Integer Id) {
+	public Optional<City> findById(Integer Id) {
+		return repo.findById(Id);
+	}
+
+	@Override
+	public Optional<City> findByName(String name) {
+		return repo.findAll().stream().filter(c -> c.getName().equalsIgnoreCase(name)).findFirst();
+	}
+
+	@Override
+	public List<City> findByDistict(String name) {
+		return repo.findAll().stream().filter(c -> c.getDistrict().equalsIgnoreCase(name)).collect(Collectors.toList());
+	}
+
+	@Override
+	public List<City> findByCountry(String name) {
+		return repo.findAll().stream().filter(c -> c.getCountry_code().equalsIgnoreCase(name))
+				.collect(Collectors.toList());
+	}
+
+	@Override
+	public List<City> findByPopulationRange(Integer min, Integer max) {
 		// TODO Auto-generated method stub
 		return null;
 	}

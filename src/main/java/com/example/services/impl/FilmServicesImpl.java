@@ -49,14 +49,15 @@ public class FilmServicesImpl implements FilmServices {
 	}
 
 	@Override
-	public Film findByTitle(String title) {
+	public Optional<Film> findByTitle(String title) {
+		return repo.findAll().stream().filter(c -> title.equalsIgnoreCase(c.getTitle())).findFirst();
 //		return repository.findAll().stream().filter(f -> f.getTitle().equalsIgnoreCase(title)).map(f ->)
-		for (Film film : repo.findAll()) {
-			if (film.getTitle().equalsIgnoreCase(title)) {
-				return film;
-			}
-		}
-		return null;
+//		for (Film film : repo.findAll()) {
+//			if (film.getTitle().equalsIgnoreCase(title)) {
+//				return film;
+//			}
+//		}
+//		return null;
 	}
 
 	@Override

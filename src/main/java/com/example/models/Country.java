@@ -132,5 +132,11 @@ public class Country {
 		this.gnp = gnp;
 	}
 
+
+	public Country(String name) {
+		super();
+		this.name = name;
+	}
+
 	
 }
